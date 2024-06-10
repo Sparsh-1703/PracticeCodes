@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables in HTML</title>
+</head>
+
+<body>
+    <h1>DA PIJEON</h1>
+    <table>
+        <tr>
+            <th>Animal</th>
+            <th>Average mass [kg (lb)]</th>
+            <th>Maximum mass
+                [kg (lb)]</th>
+            <th>Flighted</th>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Common_ostrich"> Common Ostrich </a></td>
+            <td>104 (230)</td>
+            <td>156.8 (346)</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Somali_ostrich"> Somali Ostrich </a></td>
+            <td>90 (200)</td>
+            <td>130 (287)</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Domestic_turkey"> Domestic Turkey </a></td>
+            <td> 13.5 (29.8)</td>
+            <td> 39 (86)</td>
+            <td> Yes</td>
+        </tr>
+
+    </table>
+
+    <!--                 ---its for a gap---                       -->
+
+    <h2> DA PIJEONN</h2>
+    <table>
+        <tr>
+            <th rowspan="2">Animal</th> 
+            <th colspan="2">Average Mass</th>
+            <th rowspan="2">Flighted</th>
+        </tr>
+        <tr>
+            <th>KG</th>
+            <th>LB</th>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Common_ostrich"> Common Ostrich </a></td>
+            <td> 104 </td>
+            <td> 230 </td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Somali_ostrich"> Somali Ostrich </a></td>
+            <td>90 </td>
+            <td>200</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td><a href="https://en.wikipedia.org/wiki/Domestic_turkey"> Domestic Turkey </a></td>
+            <td> 13.5 </td>
+            <td> 29.8</td>
+            <td> Yes</td>
+        </tr>
+
+    </table>
+
+    <!--                 ---its for a gap---                       -->
+
+    <h1>Forms Demo</h1>
+    <button>OUTSIDE FORM</button>
+    <form action="/tacos">
+        <button type="button">Please DO NO SUBMIT THE FORM</button>
+        <!--if type of button is changed to button, it will not submit the form as the default is Submit which we changed to Button-->
+        <p>
+            <label for="Username"> Enter a Username: </label>
+            <input id="Username" type="text" placeholder="Username" name="Username">
+            <!--name= is really imp for any input-->
+        </p>
+        <p>
+            <label for="password">Enter your password: </label>
+            <input type="password" placeholder="Password" name="password">
+        </p>
+        <p>
+            <label for="color">Pick a color: </label>
+            <input type="color" name="color">
+        </p>
+        <p>
+            <label for="number">Enter a number: </label>
+            <input type="number" placeholder="Enter a number" name="number">
+        </p>
+        <button> Submit</button>
+    </form>
+    <h3> Search Google:</h3>
+    <form action="https://www.google.com/search">
+        <input type="text" name="q">
+        <button>Browse Google: </button>
+    </form>
+    <h3>Inputs!</h3>
+    <form action="/Birds">
+        <input type="checkbox" name="agree_tos" id="agree">
+        <label for="agree">I agree to everything</label>
+        <p>
+            <label for="xs">XS:</label>
+            <input type="radio" name="size" id="xs" value="xs">
+            <label for="s">S:</label>
+            <input type="radio" name="size" id="s" value="s">
+            <label for="m">M:</label>
+            <input type="radio" name="size" id="m" value="m">
+        </p>
+        <p>
+            <label for="meal">Please select a meal type: </label>
+            <select name="meal" id="meal">
+                <option value="fish">fish</option>
+                <option value="vegetarian" selected>vegetarian</option>
+                <option value="eggs">eggs</option>
+            </select>
+        </p>
+        <p>
+            <label for="cheese">Amount of Cheese: </label>
+            <input type="range" id="cheese" min="1" max="100" value="40" name="cheese_level">
+        </p>
+        <p>
+            <label for="requests">Any special requests? </label>
+            <br>
+            <textarea name="requests?" id="requests" rows="10" cols="40"
+                placeholder="Type your requests here"></textarea>
+        </p>
+        <button>Submit</button>
+        <h2>Validations Demo</h2>
+        <form action="/dummy">
+            <label for="first">Enter first name:</label>
+            <input type="text" name="first" id="first" required>
+            <br>
+            <br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" minlength="5" maxlength="20" required>
+            <button>Submit</button>
+            <!--- <input type="email" required> 
+              <input type="url">                   some examples of built in validations in HTML for input-->
+        </form>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+/* * {
+    color: pink;           this is an example of universal selector, it selects and modifies the whole page. THERE ARE ELEMENT SELECTORS AS WELL. 
+    background-color: cyan;
+ } 
+
+    button {
+    font-size: large;
+}
+h1, h2{                 #we combined two selectors right here.
+    color: darkslateblue;
+} */
+h1{
+    background-color: crimson;
+    text-align: center;
+    width: 90%;
+    font-weight: normal;
+    text-decoration: #000 line-through wavy;
+    font-size: 50px;
+}
+h2 {
+    color: teal; /*Works with Hexadecimal Code of colors*/
+    background-color: rgba(167, 69, 31, 0.726);
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+button{
+    color: magenta;
+    background-color: cyan; 
+    text-transform: uppercase;
+}
+p{
+    color: rgb(158, 31, 158);
+    text-align: right;
+    line-height: 2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: #129d98;
+}
+a{
+    text-decoration: none;
+    color: bisque;
+}
