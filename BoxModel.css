@@ -1,0 +1,48 @@
+div{
+    width: 200px;
+    height: 200px;
+}
+.card {
+    width: auto;
+    height: auto;
+}
+body{
+    background-color: bisque;
+}
+h1 {
+    background-color: #ffafcc;
+    width: 100px;
+}
+#one {
+    background-color: #90e0ef;
+    border-width: 3px;
+    border-color: limegreen;
+    border-style: solid;
+}
+#two {
+    background-color: #00b4d8;
+    border-color: lightpink;
+    border-width: 4px;
+    border-style: dashed;
+    border-left-color: limegreen;
+    padding-right: 50px;
+}
+#three {
+    background-color: #0077b6;
+    border: 5px solid crimson;
+    border-bottom-style: dotted ;
+}
+.card{
+    width:210px;
+    border: 1px grey solid;
+    border-radius: 5px;
+    text-align: center;
+}
+img{
+    width:200px;
+    border: 5px solid rgb(236,183,191);
+    border-radius: 50%;
+}
+button{
+    padding: 10px 20px 30px 40px;
+}
