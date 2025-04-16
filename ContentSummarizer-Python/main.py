@@ -2,7 +2,7 @@ import google.generativeai as genai
 import tkinter as tk
 from tkinter import ttk
 
-genai.configure(api_key="AIzaSyAFPqW9tFmuFce4m3WZqS99rXbDJQyZjYc")
+genai.configure(api_key="API_KEY")
 
 # function to summarize text
 def summarize_text(text):
