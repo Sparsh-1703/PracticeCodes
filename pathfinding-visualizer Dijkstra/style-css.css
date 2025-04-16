@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #3a86ff;
+  --primary-light: #cfe0ff;
+  --primary-dark: #0056e0;
+  --secondary: #ff006e;
+  --success: #38b000;
+  --success-hover: #2d9900;
+  --danger: #d90429;
+  --wall: #222639;
+  --visited: #8ecae6;
+  --path: #ffbe0b;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-800: #343a40;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --font-main: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--gray-100);
+  padding: 24px;
+  color: var(--gray-800);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 28px;
+  color: var(--gray-800);
+  font-weight: 600;
+  font-size: 2.2rem;
+  letter-spacing: -0.5px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 18px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#start-btn {
+  background-color: var(--success);
+}
+
+#start-btn:hover {
+  background-color: var(--success-hover);
+}
+
+#reset-btn {
+  background-color: var(--gray-500);
+}
+
+#reset-btn:hover {
+  background-color: var(--gray-800);
+}
+
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--gray-200);
+  padding: 8px 16px;
+  border-radius: 30px;
+}
+
+.speed-control label {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+input[type="range"] {
+-webkit-appearance: none;
+appearance: none;
+  width: 120px;
+  height: 6px;
+  background: var(--gray-400);
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  gap: 2px;
+  margin: 0 auto;
+  max-width: 900px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--gray-300);
+  padding: 2px;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.25s ease-in-out;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(58, 134, 255, 0.5);
+  z-index: 10;
+}
+
+.cell.wall {
+  background-color: var(--wall);
+}
+
+.cell.start {
+  background-color: var(--success);
+  position: relative;
+}
+
+.cell.start::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.cell.end {
+  background-color: var(--secondary);
+  position: relative;
+}
+
+.cell.end::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+.cell.visited {
+  background-color: var(--visited);
+  animation: visitedAnimation 0.6s ease-out forwards;
+}
+
+.cell.path {
+  background-color: var(--path);
+  animation: pathAnimation 0.6s ease-out forwards;
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(58, 134, 255, 0.85);
+    border-radius: 50%;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgba(58, 134, 255, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    background-color: var(--visited);
+    border-radius: 3px;
+  }
+}
+
+@keyframes pathAnimation {
+  0% {
+    transform: scale(0.7);
+    background-color: rgba(255, 190, 11, 0.8);
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgba(255, 190, 11, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    background-color: var(--path);
+  }
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 28px 0;
+  flex-wrap: wrap;
+  padding: 16px;
+  background-color: var(--gray-100);
+  border-radius: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.legend-item .cell {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.instructions {
+  margin: 24px 0;
+  text-align: center;
+  padding: 16px;
+  background-color: var(--primary-light);
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.instructions p {
+  margin-bottom: 12px;
+}
+
+.mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+#wall-mode {
+  background-color: var(--wall);
+}
+
+#wall-mode:hover {
+  background-color: #2d3047;
+}
+
+#start-mode {
+  background-color: var(--success);
+}
+
+#start-mode:hover {
+  background-color: var(--success-hover);
+}
+
+#end-mode {
+  background-color: var(--secondary);
+}
+
+#end-mode:hover {
+  background-color: #d90057;
+}
+
+#current-mode {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(20, 1fr);
+  }
+}

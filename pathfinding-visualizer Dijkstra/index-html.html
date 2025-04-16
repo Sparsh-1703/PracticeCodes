@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dijkstra's Pathfinding Visualizer</title>
+    <link rel="stylesheet" href="style-css.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dijkstra's Pathfinding Visualizer</h1>
+        <div class="controls">
+            <button id="start-btn">Start Visualization</button>
+            <button id="reset-btn">Reset Grid</button>
+            <div class="speed-control">
+                <label for="speed">Speed:</label>
+                <input type="range" id="speed" min="10" max="200" value="50">
+            </div>
+        </div>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="cell start"></div>
+                <span>Start</span>
+            </div>
+            <div class="legend-item">
+                <div class="cell end"></div>
+                <span>End</span>
+            </div>
+            <div class="legend-item">
+                <div class="cell wall"></div>
+                <span>Wall</span>
+            </div>
+            <div class="legend-item">
+                <div class="cell visited"></div>
+                <span>Visited</span>
+            </div>
+            <div class="legend-item">
+                <div class="cell path"></div>
+                <span>Path</span>
+            </div>
+        </div>
+        <div class="instructions">
+            <p>Click and drag to create walls. Click on grid to set start and end points.</p>
+            <p>Current mode: <span id="current-mode">Wall</span></p>
+            <div class="mode-buttons">
+                <button id="wall-mode">Wall Mode</button>
+                <button id="start-mode">Start Point Mode</button>
+                <button id="end-mode">End Point Mode</button>
+            </div>
+        </div>
+        <div id="grid" class="grid"></div>
+    </div>
+    <script src="script-js.js"></script>
+</body>
+</html>
