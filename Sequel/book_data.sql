@@ -61,4 +61,29 @@
 -- SELECT title, author_fname, author_lname, pages FROM books WHERE author_fname LIKE '%da%';
 -- To select books with '%' in their title:
 -- SELECT * FROM books WHERE title LIKE '%\%%';
-SELECT COUNT(*) FROM books WHERE title LIKE '%the%';
+-- SELECT COUNT(*) FROM books WHERE title LIKE '%the%';
+-- SELECT title, released_year FROM books WHERE released_year = (SELECT MIN(released_year) FROM books);	
+-- SELECT author_fname, author_lname, COUNT(*) FROM books GROUP BY author_lname, author_fname;
+-- SELECT author_lname, MAX(released_year), MIN(released_year) FROM books GROUP BY author_lname;
+-- SELECT 	author_lname, author_fname,	COUNT(*) as books_written, MAX(released_year) AS latest_release,
+  -- MIN(released_year)  AS earliest_release FROM books GROUP BY author_lname, author_fname;
+-- SELECT author_lname, COUNT(*), SUM(pages) FROM books GROUP BY author_lname;
+-- SELECT AVG(released_year) FROM books;
+-- SELECT released_year, AVG(stock_quantity), COUNT(*) FROM books GROUP BY released_year;
+-- SELECT title, author_lname, released_year FROM books WHERE released_year > 2010 AND author_lname = 'Eggers' AND title LIKE '%novel%';
+-- SELECT title, author_lname, released_year FROM books WHERE author_lname='Eggers' OR released_year > 2010;
+-- SELECT title, released_year FROM books WHERE released_year BETWEEN 2004 AND 2014;
+-- SELECT title, author_lname FROM books WHERE author_lname IN ('Carver', 'Lahiri', 'Smith');
+
+-- SELECT 
+--     title,
+--     stock_quantity,
+--     CASE
+--         WHEN stock_quantity <= 40 THEN '*'
+--         WHEN stock_quantity <= 70 THEN '**'
+--         WHEN stock_quantity <= 100 THEN '***'
+--         WHEN stock_quantity <= 140 THEN '****'
+--         ELSE '*****'
+--     END AS stock
+-- FROM
+--     books;
