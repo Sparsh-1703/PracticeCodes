@@ -109,3 +109,33 @@
 -- CREATE TABLE palindromes (
 --   word VARCHAR(100) CHECK(REVERSE(word) = word)
 -- )
+-- CREATE TABLE houses (
+--   purchase_price INT NOT NULL,
+--   sale_price INT NOT NULL,
+--   CONSTRAINT sprice_gt_pprice CHECK(sale_price >= purchase_price));
+
+-- ALTER TABLE users ADD COLUMN employee_count INT NOT NULL DEFAULT 1;
+-- ALTER TABLE users DROP COLUMN employee_count;
+-- RENAME TABLE companies to suppliers;
+-- ALTER TABLE suppliers RENAME TO users;
+
+
+-- INSTEAD OF TYPING THIS QUERY ALL THE TIME...
+-- SELECT 
+--     title, released_year, genre, rating, first_name, last_name
+-- FROM
+--     reviews
+--         JOIN
+--     series ON series.id = reviews.series_id
+--         JOIN
+--     reviewers ON reviewers.id = reviews.reviewer_id;
+ 
+-- WE CAN CREATE A VIEW:
+-- CREATE VIEW full_reviews AS
+-- SELECT title, released_year, genre, rating, first_name, last_name FROM reviews
+-- JOIN series ON series.id = reviews.series_id
+-- JOIN reviewers ON reviewers.id = reviews.reviewer_id;
+--  
+ -- NOW WE CAN TREAT THAT VIEW AS A VIRTUAL TABLE 
+ -- (AT LEAST WHEN IT COMES TO SELECTING)
+-- SELECT * FROM full_reviews;
